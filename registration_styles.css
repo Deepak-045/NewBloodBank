@@ -1,0 +1,52 @@
+
+body{
+    background-image: url('image/blood.jpg');
+    align-items: center;
+    display: flex;
+}
+.container{
+    border: solid 2px red;
+    margin: 100px auto;
+    padding: 80px;
+    width: 300px;
+    height:70vh;
+    background-color: aquamarine;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+button {
+    margin: 0 auto;
+  }
+input{
+    width: 100%;
+}
+.form-group {
+    display: flex;
+    align-items: center; 
+  }
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+label[for="lastDonationDate"] {
+    margin-bottom: 10px; 
+}
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+  }  
+label {
+    font-size: 15px;
+    flex-basis: 120px; 
+    text-align: left; 
+    width: 100%;  
+}
+label[for="blood-donation"] {
+    margin-bottom: 10px;
+  }
+input[type="text"],input[type="date"],input[type="textarea"],input[type="radio"],select{
+    width:100%;
+    padding: 1px;
+    margin: 10px;
+}
