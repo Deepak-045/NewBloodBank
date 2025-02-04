@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+.header {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid black;
+    font-weight: bold;
+}
+.tabs .active {
+    background: white;
+    color: red;
+}
+.tabs .inactive {
+    background: #ccc;
+    color: gray;
+}
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.input-group i {
+    margin-right: 1px;
+    color: gray;
+}
+.input-group input {
+    border: none;
+    outline: none;
+    flex: 1;
+}
+
+.forgot-password {
+    text-align: right;
+    color: gray;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.sign-in-btn {
+    background: green;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}    
+.divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid gray;
+}
+.divider span {
+    margin: 0 10px;
+    color: gray;
+}
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.social-buttons button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-buttons .facebook {
+    background: #3b5998;
+    color: white;
+    margin-right: 10px;
+}
+.social-buttons .google {
+    background: #db4437;
+    color: white;
+}
+.create-account {
+    color: green;
+}
+
+body {
+    background-image: url('image/home.jpg');
+    background-size:1920px 1080px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    background-color: #ca7d7d;
+    object-fit: contain;
+    object-position: center;
+    object-fit: cover;
+    object-position: right top;
+}
+header {
+    font-weight:bold;
+    background-color: #ff4d4d;
+    padding: 20px;
+    color: white;
+}
+
+header .logo h1 {
+    margin: 0px;
+    font-size: 50px;
+    padding-left: 20px;
+    padding-top: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 100;
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    padding: 100px 0;
+    color: black;
+    text-align: center;
+}
+
+.hero h2 {
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    color: #6a0101;
+}
+
+section {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 50px;
+    text-align: center;
+}
+
+section.man{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+section.power{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cta-button {
+    font-size: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    text-decoration:none;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.cta-button:hover {
+    background-color: #ff2a2a;
+}
+
+section.Sign_in{
+    background-image: url('image/home_page.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
