@@ -9,7 +9,7 @@
 <body>
     <section class="container">
         <h1>Donor Registration</h1>
-        <form>
+        <form id="signup-form" action="register.php" method="POST" onsubmit="return validateForm()">
             <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="yourname"><br>
