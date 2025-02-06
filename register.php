@@ -12,20 +12,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $district = $_POST['district'];
     $pin = $_POST['PINcode'];
     $blood_group = $_POST['bloodGroup'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $last_donation_date = $_POST['lastDonationDate'] ?? NULL;
     $has_donated = $_POST['D'];
-    $last_donation_date = $_POST['lastDonationDate'];
 
     // Prepare SQL query
     $sql = "INSERT INTO donorreg
-        (name, father_name, birthdate, gender, address, state, district, pin, blood_group, has_donated, last_donation_date) 
+        (name, father_name, birthdate, gender, address, state, district, pin, blood_group, password, has_donated, last_donation_date) 
         VALUES 
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Prepare statement
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(
-        "sssssssisds", 
-        $name, $father_name, $birthdate, $gender, $address, $state, $district, $pin, $blood_group, $has_donated, $last_donation_date
+        "sssssssisssd", 
+        $name, $father_name, $birthdate, $gender, $address, $state, $district, $pin, $blood_group, $password, $last_donation_date, $has_donated
     );
 
     // Execute statement
