@@ -3,6 +3,7 @@ body{
     background-image: url('image/blood.jpg');
     align-items: center;
     display: flex;
+    
 }
 .container{
     border: solid 2px red;

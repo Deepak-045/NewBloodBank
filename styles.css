@@ -150,7 +150,8 @@ th,td{
 }
 
 .logo{
-    color: white;
+    background-attachment: fixed;
+    color:white;
 }
 
 .sign h2 {
@@ -160,7 +161,7 @@ th,td{
 
 }
 
-   
+
 
 
 
