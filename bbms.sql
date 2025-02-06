@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2025 at 01:02 PM
+-- Generation Time: Feb 06, 2025 at 06:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -86,6 +86,7 @@ CREATE TABLE `donorreg` (
   `district` varchar(255) DEFAULT NULL,
   `pin` int(11) DEFAULT NULL,
   `blood_group` enum('A+','A-','B+','B-','O+','O-','AB+','AB-') DEFAULT NULL,
+  `password` varchar(244) NOT NULL,
   `has_donated` enum('YES','NO') DEFAULT NULL,
   `last_donation_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -94,11 +95,12 @@ CREATE TABLE `donorreg` (
 -- Dumping data for table `donorreg`
 --
 
-INSERT INTO `donorreg` (`id`, `NAME`, `father_name`, `birthdate`, `gender`, `address`, `state`, `district`, `pin`, `blood_group`, `has_donated`, `last_donation_date`) VALUES
-(1, 'Hero', 'hero father', '2025-01-25', 'Male', 'New place', 'Jharkhand', 'Dhanbad', 828182, 'A+', '', '2025-01-10'),
-(2, 'Sandip', 'Gobind', '2003-01-25', 'Male', 'Bit Sindri', 'Andhra Pradesh', 'Bhopal', 823121, 'A+', '', '0000-00-00'),
-(3, 'Sanjay', 'Rahul', '2002-02-24', 'Male', 'Bit Kandra', 'Andhra Pradesh', 'Dhana', 828102, 'A+', '', '0000-00-00'),
-(4, 'Raju II', 'Raju I', '1978-03-26', 'Male', 'RajNiwas', 'Andhra Pradesh', 'Vimal', 820001, 'A+', '', '2025-01-23');
+INSERT INTO `donorreg` (`id`, `NAME`, `father_name`, `birthdate`, `gender`, `address`, `state`, `district`, `pin`, `blood_group`, `password`, `has_donated`, `last_donation_date`) VALUES
+(1, 'Hero', 'hero father', '2025-01-25', 'Male', 'New place', 'Jharkhand', 'Dhanbad', 828182, 'A+', '', '', '2025-01-10'),
+(2, 'Sandip', 'Gobind', '2003-01-25', 'Male', 'Bit Sindri', 'Andhra Pradesh', 'Bhopal', 823121, 'A+', '', '', '0000-00-00'),
+(3, 'Sanjay', 'Rahul', '2002-02-24', 'Male', 'Bit Kandra', 'Andhra Pradesh', 'Dhana', 828102, 'A+', '', '', '0000-00-00'),
+(4, 'Raju II', 'Raju I', '1978-03-26', 'Male', 'RajNiwas', 'Andhra Pradesh', 'Vimal', 820001, 'A+', '', '', '2025-01-23'),
+(5, 'Hero', 'hero father', '2005-05-10', 'Male', 'RajNiwas', 'Andhra Pradesh', 'Vimal', 820001, 'A+', '', '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -171,7 +173,7 @@ ALTER TABLE `blood_inventory`
 -- AUTO_INCREMENT for table `donorreg`
 --
 ALTER TABLE `donorreg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `requests`
