@@ -95,7 +95,9 @@
                 <option value="AB-">AB-</option>
             </select><br>
             </div>
-            
+            Password: <input type="password" id="password" name="password" required><br>
+            Confirm Password: <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+            <span id="passwordError" class="error"></span><br> <br>
             <label for="Query">Have you ever donated blood?</label><br>
             <div class="radio-group" id = "last">
             <input type="radio" id="Y" name="D" value="YES" onclick="toggleAdditionalInfo()" >
@@ -103,12 +105,29 @@
             <input type="radio" id="N" name="D" value="NO" checked onclick="toggleAdditionalInfo()">
             <label for="N">NO</label><br>
             </div>
-            <label for="lastDonationDate">Last Donation Date (if applicable):</label>
+            <label for="lastDonationDate">Last Donation Date:</label>
             <input type="date" id="lastDonationDate" name="lastDonationDate"> 
             <button type="submit" class="registerbtn">Register</button>    
         </form>
     </section>
     <script>
+        function validatePassword() {
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const passwordError = document.getElementById("passwordError");
+
+        if (password !== confirmPassword) {
+            passwordError.textContent = "Passwords do not match!";
+            return false; 
+        } else if (password.length < 8) { 
+            passwordError.textContent = "Password must be at least 8 characters long.";
+            return false;
+        } else {
+            passwordError.textContent = ""; 
+        }
+
+        return true; 
+    }
     function toggleAdditionalInfo() {
         const yesRadio = document.getElementById("Y");
         const additionalInfoDiv = document.getElementById("last");
