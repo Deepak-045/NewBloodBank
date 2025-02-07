@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepare SQL query
     $sql = "INSERT INTO donorreg
-        (name, father_name, birthdate, gender, address, state, district, pin, blood_group, password, has_donated, last_donation_date) 
+        (name, father_name, birthdate, gender, address, state, district, pin, blood_group, email, password, has_donated, last_donation_date) 
         VALUES 
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
