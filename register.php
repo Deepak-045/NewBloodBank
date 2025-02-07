@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute statement
     if ($stmt->execute()) {
-        echo "Donor registered successfully!";
+         header("Location: success.php");
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }
