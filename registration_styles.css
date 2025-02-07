@@ -9,8 +9,9 @@ body{
     border: solid 2px red;
     margin: 100px auto;
     padding: 80px;
+    padding-top: 60px;
     width: 300px;
-    height:70vh;
+    height:100vh;
     background-color: aquamarine;
     justify-content: center;
     align-items: center;
@@ -19,15 +20,29 @@ body{
 }
 button {
     margin: 0 auto;
+    margin-top: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
   }
 input{
     width: 100%;
 }
+.form-group label {
+    white-space: nowrap;
+    width: 100px;
+    text-align: left; 
+}
+
 .form-group {
     display: flex;
-    align-items: center; 
+    align-items: center;
+    gap: 5px; 
+    margin-bottom: 5px; 
   }
 .radio-group {
+    position: relative;
+    top: -5px;
     display: flex;
     align-items: center;
 }
@@ -38,6 +53,7 @@ label[for="lastDonationDate"] {
     margin-right: 5px;
   }  
 label {
+    display: inline-block;
     font-size: 15px;
     flex-basis: 120px; 
     text-align: left; 
@@ -50,4 +66,10 @@ input[type="text"],input[type="date"],input[type="textarea"],input[type="radio"]
     width:100%;
     padding: 1px;
     margin: 10px;
+}
+#last{
+    display: none;
+}
+.error{
+    color: red;
 }

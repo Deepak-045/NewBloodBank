@@ -9,7 +9,7 @@
 <body>
     <section class="container">
         <h1>Donor Registration</h1>
-        <form id="signup-form" action="register.php" method="POST" onsubmit="return validateForm()">
+        <form id="signup-form" action="register.php" method="POST" onsubmit="return validatePassword()">
             <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="yourname" required><br>
@@ -95,39 +95,47 @@
                 <option value="AB-">AB-</option>
             </select><br>
             </div>
+            Email: <input type="email" id="your email" name="Email" required><br>
             Password: <input type="password" id="password" name="password" required><br>
             Confirm Password: <input type="password" id="confirmPassword" name="confirmPassword" required><br>
-            <span id="passwordError" class="error"></span><br> <br>
+            <span id="passwordError" class="error"></span><br>
             <label for="Query">Have you ever donated blood?</label><br>
-            <div class="radio-group" id = "last">
+            <div class="radio-group">
             <input type="radio" id="Y" name="D" value="YES" onclick="toggleAdditionalInfo()" >
             <label for="Y">YES</label>
             <input type="radio" id="N" name="D" value="NO" checked onclick="toggleAdditionalInfo()">
             <label for="N">NO</label><br>
             </div>
+            <div id="last">
             <label for="lastDonationDate">Last Donation Date:</label>
-            <input type="date" id="lastDonationDate" name="lastDonationDate"> 
+            <input type="date" id="lastDonationDate" name="lastDonationDate" required> 
+            </div>
             <button type="submit" class="registerbtn">Register</button>    
         </form>
     </section>
     <script>
         function validatePassword() {
-        const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
-        const passwordError = document.getElementById("passwordError");
+    const pwd = document.getElementById("password");
+    const cpwd = document.getElementById("confirmPassword");
+    const err = document.getElementById("passwordError");
 
-        if (password !== confirmPassword) {
-            passwordError.textContent = "Passwords do not match!";
-            return false; 
-        } else if (password.length < 8) { 
-            passwordError.textContent = "Password must be at least 8 characters long.";
-            return false;
-        } else {
-            passwordError.textContent = ""; 
-        }
-
-        return true; 
+    if (pwd.value !== cpwd.value) {
+        err.textContent = "Passwords do not match!";
+        pwd.value = "";
+        cpwd.value = "";
+        return false;
+    } else if (pwd.value.length < 8) { 
+        err.textContent = "Password must be at least 8 characters long.";
+        pwd.value = "";
+        cpwd.value = "";
+        return false;
+    } else {
+        err.textContent = ""; 
     }
+
+    return true; 
+}
+
     function toggleAdditionalInfo() {
         const yesRadio = document.getElementById("Y");
         const additionalInfoDiv = document.getElementById("last");
