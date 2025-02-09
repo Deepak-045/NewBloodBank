@@ -114,7 +114,8 @@ section.Sign_in{
 
 .container {
     position: relative;
-    top: 100px;
+    top: 20px;
+    bottom:50px;
     background: rgba(247, 199, 199, 0.8);
     padding: 20px;
     border-radius: 10px;
@@ -122,7 +123,7 @@ section.Sign_in{
     width: 350px;
     text-align: center;
     width: 500px;
-    height:65vh;
+    height:80vh;
     display:inline-block;
    
 }
