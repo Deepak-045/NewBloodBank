@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Blood Bank</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Blood Circle</h1>
+        </div>
+    </header>
+
+    <section class="sign" id="sign-in">
+        <div class="sign content">
+        <h2>Sign In to Manage Your Account</h2>
+        <div>
+        <form action="signin.php" method="POST">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Sign In">
+        </form>
+        
+    </section>
+
+    <footer class="copyright" id="copyright">
+        <div class="copyright-content">
+        <p>&copy; 2024 Blood Bank Management. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
