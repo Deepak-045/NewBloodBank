@@ -1,0 +1,70 @@
+<?php
+session_start();
+if (!isset($_SESSION["admin_id"])) {
+    header("Location: Sign_in.html");
+    exit();
+}
+?>
+
+
+
+
+
+
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>
+            Blood Circle
+        </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">Blood Circle</h1>
+            </div>
+            <a href="logout.php">
+            <button class="logout-button">
+                 Logout  <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+            </a>
+        </header>
+        <div class="conatiner">
+            <aside class="sidebar">
+                <nav class="nav">
+                    <ul>
+                        <li class="nav-item active">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home</span>
+                        </li>
+                        <li class="nav-item">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Donor</span>
+                        </li>
+                        <li class="nav-item">
+                            <i class="fa-regular fa-user"></i>
+                            <span>patient</span>
+                        </li>
+                        <li class="nav-item">
+                            <i class="fa-solid fa-retweet"></i>
+                            <span>Donation</span>
+                        </li>
+                        <li class="nav-item">
+                            <i class="fa-regular fa-clock"></i>
+                            <span>History</span>
+                        </li>
+                        <li class="nav-item">
+                            <i class="fa-solid fa-bell"></i>
+                            <span>Request</span>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+        
+
+    </body>
+</html>
