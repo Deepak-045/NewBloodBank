@@ -8,9 +8,9 @@
 
 body {
     background-image: url('image/home.jpg');
-    background-size:1920px 1080px;
+    background-size:contain;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment:local;
     font-family: Arial, sans-serif;
     background-color: #ca7d7d;
     object-fit: contain;
@@ -76,6 +76,7 @@ section {
 }
 
 section.man{
+    background-color: antiquewhite;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
 }

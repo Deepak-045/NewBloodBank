@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="Sign_in.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
     <header class="banner" id="banner">
@@ -11,29 +13,29 @@
             <h1>Blood Circle</h1>
         </div>
         <nav>
+            <input type="checkbox" id="check" name="" value="">
+            <label for="check" id="checkbtn">
+                <i class="fa-solid fa-bars"></i>
+            </label>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#donate">Donate</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="registration.html">Become a Donor</a></li>
-                <li><a href="signin.html">Sign In</a></li>
             </ul>
         </nav>
     </header>
     <section class="Sign_in" id="Sign_in">
         <div class="container">
             <div class="header">PLEASE LOGIN TO CONTINUE</div>
-            <div class="tabs">
-                <button class="active">User</button>
-                <button class="inactive">Admin</button>
-            </div>
+           
             <div class="input-group">
-                <i class="user"></i>
+                <i class="fa-solid fa-user"></i>
                 <input type="text" placeholder="Username or Email">
             </div>
             <div class="input-group">
-                <i class="lock"></i>
+                <i class="fa-solid fa-lock"></i>
                 <input type="password" placeholder="Password">
             </div>
             <div class="forgot-password">Forgot password</div>
@@ -59,8 +61,6 @@
         <p>For more information, please reach out to us at info@bloodbank.com</p>
         </div>
      </section>
-     
-
     <footer>
         <p>&copy; 2024 Blood Bank Management. All rights reserved.</p>
     </footer>

@@ -1,3 +1,4 @@
+/* Main home page */
 body {
     background-image: url('image/home.jpg');
     background-size:flex;
@@ -111,11 +112,11 @@ section.Sign_in{
     box-sizing: border-box;
 
 }
-
+/* Sign_in Page */
 .container {
-    position: relative;
-    top: 100px;
-    background: rgba(247, 199, 199, 0.8);
+    position:absolute;
+    top: 250px;
+    background: rgba(225, 215, 215, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -124,58 +125,41 @@ section.Sign_in{
     width: 500px;
     height:65vh;
     display:inline-block;
+    flex-direction: column;
    
 }
 
 .header {
-    font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-family:'Courier New', Courier, monospace;
     color: rgb(247, 20, 20);
     font-weight: bold;
     margin-bottom: 20px;
     
 }
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-.tabs button {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid black;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 20px;
-    border-radius: 2px;
-}
-.tabs .active {
-    background: white;
-    color: red;
-}
-.tabs .inactive {
-    background: #ccc;
-    color: gray;
-}
+
 .input-group {
     display: flex;
     align-items: center;
     border: 1px solid black;
     border-radius: 5px;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 11px;
 
 }
 .input-group i {
+    border: black;
+    font-size: 28px;
     margin-right: 1px;
-    color: rgb(143, 139, 139);
+    color: rgb(73, 119, 165);
 }
 .input-group input {
-    padding: 5px 10px;
+    padding: 10px 15px;
     border:20px 30px;
     outline: none;
     flex: auto;
 }
+
 
 
 .forgot-password {
@@ -248,3 +232,63 @@ footer {
     text-align: center;
     padding: 10px;
 }
+
+
+
+
+  /* Responsive Sign_in Page for large screen (laptop) */
+  @media (max-width: 979px) {
+    body {
+        flex-direction: column;
+      font-size: 10px;
+    }
+  
+    .container {
+      height: auto;  
+      width: 50%;
+      margin: 0 auto;
+    }
+  
+    .login-form {
+      height: auto;
+      width: 90%;
+      margin: 0 auto;
+    }
+  
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: calc(border-box);
+      display: block;
+    }
+  
+    
+    }
+    
+    footer{
+        display: flex;
+
+    }
+   
+  
+  
+  
+/*Responsive Sign_in Page for smaller screen (moblie) */
+  @media (max-width: 480px) {
+    body {
+      font-size: 12px;
+    }
+  
+    .container {
+       
+      width: 80%;
+    }
+  
+    .login-form {
+        height: auto;
+      width: 80%;
+    }
+  }
+
+ 
+
+ 
