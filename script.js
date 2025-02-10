@@ -12,5 +12,4 @@ function validateForm() {
     return true;
 }
 
-
    
