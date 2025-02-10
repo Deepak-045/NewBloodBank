@@ -114,16 +114,17 @@ section.Sign_in{
 }
 /* Sign_in Page */
 .container {
-    position:absolute;
-    top: 250px;
-    background: rgba(225, 215, 215, 0.8);
+    position: relative;
+    top: 20px;
+    bottom:50px;
+    background: rgba(247, 199, 199, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 350px;
     text-align: center;
     width: 500px;
-    height:65vh;
+    height:80vh;
     display:inline-block;
     flex-direction: column;
    

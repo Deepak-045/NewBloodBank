@@ -23,6 +23,7 @@
                 <li><a href="#donate">Donate</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="registration.html">Become a Donor</a></li>
+                <li><a href="signin.html">Admin</a></li>
             </ul>
         </nav>
     </header>
@@ -38,8 +39,10 @@
                 <i class="fa-solid fa-lock"></i>
                 <input type="password" placeholder="Password">
             </div>
-            <div class="forgot-password">Forgot password</div>
-            <button class="sign-in-btn">Sign in</button>
+            <div class="forgot-password">
+                <a href="forgot-password.html">Forgot Password?</a>
+            </div>
+            <button class="sign-in-btn" id="sign-in">Sign in</button>
             <div class="divider">
                 <hr>
                 <span>or</span>
@@ -64,6 +67,26 @@
     <footer>
         <p>&copy; 2024 Blood Bank Management. All rights reserved.</p>
     </footer>
+    <script>
+        document.getElementById("sign-in").addEventListener("click", function() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+        
+            fetch("admin_login.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password)
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() === "success") {
+                    window.location.href = "admin_dashboard.php";
+                } else {
+                    alert("Invalid credentials!");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 
