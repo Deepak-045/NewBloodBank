@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="registration_styles.css">
 </head>
 <body>
+    <header class="banner" id="banner">
+        <div class="logo">
+            <h1>Blood Circle</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="blood_request.html">Need Blood</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="registration.html">Become a Donor</a></li>
+                <li><a href="Sign_in.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
     <section class="container">
         <h1>Donor Registration</h1>
         <form id="signup-form" action="register.php" method="POST" onsubmit="return validatePassword()">
@@ -113,6 +128,17 @@
             <button type="submit" class="registerbtn">Register</button>    
         </form>
     </section>
+    <section id="contact" class="power">
+        <div class="power-content">
+        <h2>Contact Us</h2>
+        <p>For more information, please reach out to us at info@bloodbank.com</p>
+        </div>
+     </section>
+     
+
+    <footer>
+        <p>&copy; 2024 Blood Bank Management. All rights reserved.</p>
+    </footer>
     <script>
         function validatePassword() {
     const pwd = document.getElementById("password");
