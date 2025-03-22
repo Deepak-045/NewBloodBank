@@ -4,7 +4,40 @@ if (!isset($_SESSION["admin_id"])) {
     header("Location: Sign_in.html");
     exit();
 }
+
+
+
+include('db.php');
+
+$sql = "SELECT * FROM blood_inventory";
+$result = $conn->query($sql);
+
+// Create an array to hold blood data
+$bloodData = array();
+
+if ($result->num_rows > 0) {
+    // Fetch data row by row
+    while($row = $result->fetch_assoc()) {
+        $bloodData[$row['blood_group']] = $row['quantity'];
+    }
+} else {
+    echo "0 results";
+}
+
+// Fetch total number of donors
+$donorsQuery = "SELECT COUNT(*) AS total_donors FROM donorreg"; 
+$donorsResult = $conn->query($donorsQuery);
+$donorsData = $donorsResult->fetch_assoc();
+$totalDonors = $donorsData['total_donors'];
+
+// Fetch total number of requests
+$requestsQuery = "SELECT COUNT(*) AS total_requests FROM requests"; // Replace 'requests' with your actual requests table name
+$requestsResult = $conn->query($requestsQuery);
+$requestsData = $requestsResult->fetch_assoc();
+$totalRequests = $requestsData['total_requests'];
+
 ?>
+
 
 
 
@@ -72,62 +105,21 @@ if (!isset($_SESSION["admin_id"])) {
             </aside>
             <main class="main-content">
                 <div class="grid">
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">A+</span>
-                            <i class="fa-solid fa-droplet" style="color: #ff0000;"></i>
+                <?php
+                $bloodTypes = ['A+', 'B+', 'O+', 'AB+', 'A-', 'B-', 'O-', 'AB-'];
+                foreach ($bloodTypes as $bloodType) {
+                    $stock = isset($bloodData[$bloodType]) ? $bloodData[$bloodType] : 0;
+                    echo "
+                    <div class='card'>
+                        <div class='card-header'>
+                            <span class='card-title'>$bloodType</span>
+                            <i class='fa-solid fa-droplet' style='color: #ff0000;'></i>
                         </div>
-                        <div class="card-value">1</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">B+</span>
-                            <i class="fa-solid fa-droplet" style="color: #ff0000;"></i>
-                        </div>
-                        <div class="card-value">1</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">O+</span>
-                            <i class="fa-solid fa-droplet" style="color: #ff0000;"></i>
-                        </div>
-                        <div class="card-value">1</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">AB+</span>
-                            <i class="fa-solid fa-droplet" style="color: #ff0000;"></i>
-                        </div>
-                        <div class="card-value">1</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">A-</span>
-                            <i class="fa-solid fa-droplet" style="color: #ff0000;"></i>
-                        </div>
-                        <div class="card-value">1</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">B-</span>
-                            <i class="fa-solid fa-droplet" style="color: #ff0000;"></i>
-                        </div>
-                        <div class="card-value">1</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">O-</span>
-                            <i class="fa-solid fa-droplet" style="color: #ff0000;"></i>
-                        </div>
-                        <div class="card-value">1</div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">AB-</span>
-                            <i class="fa-solid fa-droplet" style="color: #ff0000;"></i>
-                        </div>
-                        <div class="card-value">1</div>
-                    </div>
+                        <div class='card-value'>$stock</div>
+                    </div>";
+                }
+                ?>
+                    
                 </div>
                 <div class="grid mt-6">
                     <div class="card">
@@ -135,14 +127,14 @@ if (!isset($_SESSION["admin_id"])) {
                             <span class="card-title">Total Donars</span>
                             <i class="fa-thin fa-people-group"></i>
                         </div>
-                        <div class="card-value">3</div>
+                        <div class="card-value"><?php echo $totalDonors; ?></div>
                     </div>
                     <div class="card">
                         <div class="card-header">
                             <span class="card-title">Total Requests</span>
                             <i class="fa-light fa-clock-rotate-left"></i>
                         </div>
-                        <div class="card-value">3</div>
+                        <div class="card-value"><?php echo $totalRequests; ?></div>
                     </div>
                     <div class="card">
                         <div class="card-header">
