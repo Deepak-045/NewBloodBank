@@ -5,8 +5,6 @@ if (!isset($_SESSION["admin_id"])) {
     exit();
 }
 
-
-
 include('db.php');
 
 $sql = "SELECT * FROM blood_inventory";
@@ -31,28 +29,18 @@ $donorsData = $donorsResult->fetch_assoc();
 $totalDonors = $donorsData['total_donors'];
 
 // Fetch total number of requests
-$requestsQuery = "SELECT COUNT(*) AS total_requests FROM requests"; // Replace 'requests' with your actual requests table name
+$requestsQuery = "SELECT COUNT(*) AS total_requests FROM requests"; 
 $requestsResult = $conn->query($requestsQuery);
 $requestsData = $requestsResult->fetch_assoc();
 $totalRequests = $requestsData['total_requests'];
 
 ?>
 
-
-
-
-
-
-
-
-
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>
-            Blood Circle
-        </title>
+        <title>Blood Circle</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="stylesheet" href="dashboard.css">
         <link rel="stylesheet" href="script.js">
@@ -63,42 +51,69 @@ $totalRequests = $requestsData['total_requests'];
                 <h1 class="title">Blood Circle</h1>
             </div>
             <a href="logout.php">
-            <button class="logout-button">
-                 Logout  <i class="fa-solid fa-right-from-bracket"></i>
-            </button>
+                <button class="logout-button">
+                    Logout <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
             </a>
         </header>
-        <div class="conatiner">
+        <div class="container">
             <aside class="sidebar">
                 <nav class="nav">
                     <ul>
-                        <li class="nav-item active">
-                            <i class="fa-solid fa-house"></i>
-                            <span>Home</span>
+                        <!-- Home Link -->
+                        <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : ''; ?>">
+                            <a href="dashboard.php">
+                                <i class="fa-solid fa-house"></i>
+                                <span>Home</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <i class="fa-solid fa-user"></i>
-                            <span>Donor</span>
+                        
+                        <!-- Donor Link -->
+                        <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'b_donor.php' ? 'active' : ''; ?>">
+                            <a href="b_donor.php">
+                                <i class="fa-solid fa-user"></i>
+                                <span>Donor</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <i class="fa-regular fa-user"></i>
-                            <span>patient</span>
+
+                        <!-- Patient Link -->
+                        <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard_patient.php' ? 'active' : ''; ?>">
+                            <a href="dashboard_patient.php">
+                                <i class="fa-regular fa-user"></i>
+                                <span>Patient</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <i class="fa-solid fa-retweet"></i>
-                            <span>Donation</span>
+
+                        <!-- Donation Link -->
+                        <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard_donation.php' ? 'active' : ''; ?>">
+                            <a href="dashboard_donation.php">
+                                <i class="fa-solid fa-retweet"></i>
+                                <span>Donation</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <i class="fa-regular fa-clock"></i>
-                            <span>Blood Request</span>
+
+                        <!-- Blood Request Link -->
+                        <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard_blood_request.php' ? 'active' : ''; ?>">
+                            <a href="dashboard_blood_request.php">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>Blood Request</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <i class="fa-solid fa-bell"></i>
-                            <span>Blood History</span>
+
+                        <!-- Blood History Link -->
+                        <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard_blood_history.php' ? 'active' : ''; ?>">
+                            <a href="dashboard_blood_history.php">
+                                <i class="fa-solid fa-bell"></i>
+                                <span>Blood History</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <i class="fa-solid fa-boxes-stacked"></i>
-                            <span>Blood Stock</span>
+
+                        <!-- Blood Stock Link -->
+                        <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard_blood_stock.php' ? 'active' : ''; ?>">
+                            <a href="dashboard_blood_stock.php">
+                                <i class="fa-solid fa-boxes-stacked"></i>
+                                <span>Blood Stock</span>
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -119,12 +134,11 @@ $totalRequests = $requestsData['total_requests'];
                     </div>";
                 }
                 ?>
-                    
                 </div>
                 <div class="grid mt-6">
                     <div class="card">
                         <div class="card-header">
-                            <span class="card-title">Total Donars</span>
+                            <span class="card-title">Total Donors</span>
                             <i class="fa-thin fa-people-group"></i>
                         </div>
                         <div class="card-value"><?php echo $totalDonors; ?></div>
@@ -141,7 +155,7 @@ $totalRequests = $requestsData['total_requests'];
                             <span class="card-title">Approved Requests</span>
                             <i class="fa-solid fa-person-circle-check"></i>
                         </div>
-                        <div class="card-value">3</div>
+                        <div class="card-value">2</div>
                     </div>
                     <div class="card">
                         <div class="card-header">
