@@ -8,14 +8,14 @@ if (!isset($_SESSION["admin_id"])) {
 include('db.php'); 
 
 // Fetch total number of donations
-/*$donationsQuery = "SELECT COUNT(*) AS total_donations FROM donations"; // Adjust the table name if necessary
+$donationsQuery = "SELECT COUNT(*) AS total_donations FROM blood_donations"; // Adjust the table name if necessary
 $donationsResult = $conn->query($donationsQuery);
 $donationsData = $donationsResult->fetch_assoc();
 $totalDonations = $donationsData['total_donations'];
 
 // Fetch details of donations (e.g., donor, blood group, date)
-$donationDetailsQuery = "SELECT donor_name, blood_group, donation_date FROM donations"; // Adjust the table and fields as needed
-$donationDetailsResult = $conn->query($donationDetailsQuery);*/
+$donationDetailsQuery = "SELECT donor_name, blood_group, donation_date FROM blood_donations"; // Adjust the table and fields as needed
+$donationDetailsResult = $conn->query($donationDetailsQuery);
 ?>
 
 <html lang="en">
@@ -24,7 +24,7 @@ $donationDetailsResult = $conn->query($donationDetailsQuery);*/
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Donation | Blood Circle</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-        <link rel="stylesheet" href="dashboard.css">
+        <link rel="stylesheet" href="dashboard.css?v=<?php echo time(); ?>">
         <link rel="stylesheet" href="script.js">
     </head>
     <body>
@@ -114,7 +114,7 @@ $donationDetailsResult = $conn->query($donationDetailsQuery);*/
                             <span class="card-title">Total Donations</span>
                             <i class="fa-solid fa-heart"></i>
                         </div>
-                        <div class="card-value"><?php //echo $totalDonations;// ?></div>
+                        <div class="card-value"><?php echo $totalDonations; ?></div>
                     </div>
 
                     <div class="card">
@@ -124,7 +124,7 @@ $donationDetailsResult = $conn->query($donationDetailsQuery);*/
                         </div>
                         <div class="card-value">
                             <?php
-                            /*if ($donationDetailsResult->num_rows > 0) {
+                            if ($donationDetailsResult->num_rows > 0) {
                                 while($donation = $donationDetailsResult->fetch_assoc()) {
                                     echo "
                                         <div class='donation-info'>
@@ -136,7 +136,7 @@ $donationDetailsResult = $conn->query($donationDetailsQuery);*/
                                 }
                             } else {
                                 echo "No donation data found.";
-                            }*/
+                            }
                             ?>
                         </div>
                     </div>
