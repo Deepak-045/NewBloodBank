@@ -8,14 +8,14 @@ if (!isset($_SESSION["admin_id"])) {
 include('db.php');
 
 // Fetch total number of patients
-/*$patientsQuery = "SELECT COUNT(*) AS total_patients FROM patients"; // Adjust the table name if necessary
+$patientsQuery = "SELECT COUNT(*) AS total_patients FROM requests"; // Adjust the table name if necessary
 $patientsResult = $conn->query($patientsQuery);
 $patientsData = $patientsResult->fetch_assoc();
-$totalPatients = $patientsData['total_patients'];*/
+$totalPatients = $patientsData['total_patients'];
 
 // Fetch details of patients (e.g., name, blood group)
-//$patientsDetailsQuery = "SELECT name, blood_group, contact FROM patients"; // Adjust the table and fields as needed
-//$patientsDetailsResult = $conn->query($patientsDetailsQuery);
+$patientsDetailsQuery = "SELECT patient_name, blood_group, contact_no FROM requests"; // Adjust the table and fields as needed
+$patientsDetailsResult = $conn->query($patientsDetailsQuery);
 ?>
 
 <html lang="en">
@@ -24,7 +24,7 @@ $totalPatients = $patientsData['total_patients'];*/
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Patient | Blood Circle</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-        <link rel="stylesheet" href="dashboard.css">
+        <link rel="stylesheet" href="dashboard.css?v=<?php echo time(); ?>">
         <link rel="stylesheet" href="script.js">
     </head>
     <body>
@@ -124,19 +124,19 @@ $totalPatients = $patientsData['total_patients'];*/
                         </div>
                         <div class="card-value">
                             <?php
-                            /*if ($patientsDetailsResult->num_rows > 0) {
+                            if ($patientsDetailsResult->num_rows > 0) {
                                 while($patient = $patientsDetailsResult->fetch_assoc()) {
                                     echo "
                                         <div class='patient-info'>
-                                            <p><strong>Name:</strong> " . $patient['name'] . "</p>
+                                            <p><strong>Name:</strong> " . $patient['patient_name'] . "</p>
                                             <p><strong>Blood Group:</strong> " . $patient['blood_group'] . "</p>
-                                            <p><strong>Contact:</strong> " . $patient['contact'] . "</p>
+                                            <p><strong>Contact:</strong> " . $patient['contact_no'] . "</p>
                                         </div>
                                         <hr>";
                                 }
                             } else {
                                 echo "No patient data found.";
-                            }*/
+                            }
                             ?>
 
                         </div>
