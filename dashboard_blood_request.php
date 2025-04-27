@@ -14,7 +14,7 @@ $requestsData = $requestsResult->fetch_assoc();
 $totalRequests = $requestsData['total_requests'];
 
 // Fetch blood request details (e.g., patient name, blood group, request date)
-$requestsDetailsQuery = "SELECT patient_name, blood_group, request_date FROM requests"; // Adjust table and fields as needed
+$requestsDetailsQuery = "SELECT id, patient_name, blood_group, request_date, status FROM requests"; // Adjust table and fields as needed
 $requestsDetailsResult = $conn->query($requestsDetailsQuery);
 ?>
 
@@ -108,6 +108,10 @@ $requestsDetailsResult = $conn->query($requestsDetailsQuery);
             <!-- Main Content Section -->
             <main class="main-content">
                 <h2>Blood Request Management</h2>
+                <?php if (isset($_GET['approved'])): ?>
+                      <p style="color: green; font-weight: bold;">Request approved successfully!</p>
+                <?php endif; ?>
+
                 <div class="grid mt-6">
                     <div class="card">
                         <div class="card-header">
@@ -126,14 +130,20 @@ $requestsDetailsResult = $conn->query($requestsDetailsQuery);
                             <?php
                             if ($requestsDetailsResult->num_rows > 0) {
                                 while($request = $requestsDetailsResult->fetch_assoc()) {
-                                    echo "
-                                        <div class='request-info'>
-                                            <p><strong>Patient Name:</strong> " . $request['patient_name'] . "</p>
-                                            <p><strong>Blood Group:</strong> " . $request['blood_group'] . "</p>
-                                            <p><strong>Request Date:</strong> " . $request['request_date'] . "</p>
+                                    if ($request['status'] !== 'approved') {
+                                        echo "
+                                            <div class='request-info'>
+                                                <p><strong>Patient Name:</strong> " . $request['patient_name'] . "</p>
+                                                <p><strong>Blood Group:</strong> " . $request['blood_group'] . "</p>
+                                                <p><strong>Request Date:</strong> " . $request['request_date'] . "</p>
+                                                <form method='POST' action='approve_request.php'>
+                                                    <input type='hidden' name='request_id' value='" . $request['id'] . "'>
+                                                    <button type='submit' class='approve-button'>Approve</button>
+                                                </form>
                                         </div>
                                         <hr>";
                                 }
+                               }
                             } else {
                                 echo "No blood requests found.";
                             }
