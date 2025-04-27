@@ -8,8 +8,8 @@ if (!isset($_SESSION["admin_id"])) {
 include('db.php');
 
 // Fetch the blood history details (e.g., date of donation, blood group, quantity, etc.)
-/*$historyQuery = "SELECT * FROM blood_history ORDER BY donation_date DESC"; 
-$historyResult = $conn->query($historyQuery);*/
+$historyQuery = "SELECT * FROM blood_donations ORDER BY donation_date DESC"; 
+$historyResult = $conn->query($historyQuery);
 ?>
 
 <html lang="en">
@@ -18,7 +18,7 @@ $historyResult = $conn->query($historyQuery);*/
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Blood History | Blood Circle</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-        <link rel="stylesheet" href="dashboard.css">
+        <link rel="stylesheet" href="dashboard.css?v=<?php echo time(); ?>">
         <link rel="stylesheet" href="script.js">
     </head>
     <body>
@@ -110,12 +110,12 @@ $historyResult = $conn->query($historyQuery);*/
                         </div>
                         <div class="card-value">
                             <?php
-                           /* if ($historyResult->num_rows > 0) {
+                            if ($historyResult->num_rows > 0) {
                                 echo "<table class='history-table'>
                                         <thead>
                                             <tr>
                                                 <th>Blood Group</th>
-                                                <th>Quantity (ml)</th>
+                                               
                                                 <th>Donor Name</th>
                                                 <th>Donation Date</th>
                                             </tr>
@@ -125,7 +125,7 @@ $historyResult = $conn->query($historyQuery);*/
                                     echo "
                                     <tr>
                                         <td>" . $row['blood_group'] . "</td>
-                                        <td>" . $row['quantity'] . "</td>
+                                       
                                         <td>" . $row['donor_name'] . "</td>
                                         <td>" . $row['donation_date'] . "</td>
                                     </tr>";
@@ -133,7 +133,7 @@ $historyResult = $conn->query($historyQuery);*/
                                 echo "</tbody></table>";
                             } else {
                                 echo "No blood donation history found.";
-                            }*/
+                            }
                             ?>
                         </div>
                     </div>
